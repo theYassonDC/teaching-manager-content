@@ -9,17 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^39.0.1",
+    "@ckeditor/ckeditor5-react": "^6.1.0",
+    "@nextui-org/react": "^2.0.24",
+    "@prisma/client": "^5.1.1",
+    "@react-stately/data": "^3.10.1",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
+    "ckeditor5-custom-build": "file:ckeditor5",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "framer-motion": "^10.16.0",
+    "mysql2": "^3.6.0",
     "next": "13.4.16",
+    "next-auth": "^4.23.1",
+    "pg": "^8.11.2",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "reflect-metadata": "^0.1.13",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "prisma": "^5.1.1",
+    "ts-node": "^10.9.1"
   }
 }
