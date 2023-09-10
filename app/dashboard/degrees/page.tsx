@@ -23,7 +23,7 @@ export default function DashBoardDegrees() {
     switch (columnKey) {
       case 'action':
         return (
-          <Button as={Link} href="#" color="success">Ver panel</Button>
+          <Button as={Link} href={`/dashboard/degrees/${degrees.id}`} color="success">Ver panel</Button>
         );
 
       case 'delete':

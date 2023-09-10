@@ -7,7 +7,7 @@ export async function GET(request: Request, context: GetServerSidePropsContext) 
   try {
     const idString: string | any = context.params?.degreeId
     const id = parseInt(idString)
-    const topic = await prisma.topics.findMany({ where: { degreeId: id }})
+    const topic = await prisma.topics.findMany({ where: { degreeId: id }, include: { degree: true }})
     return NextResponse.json({ topic })
   } catch (error) {
     console.log(error)

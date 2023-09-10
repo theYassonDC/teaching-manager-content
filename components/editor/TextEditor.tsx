@@ -1,9 +1,10 @@
 'use client'
-import Editor from 'ckeditor5-custom-build/build/ckeditor';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import Editor from 'ckeditor5-custom-build/build/ckeditor';
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { useState, useEffect, useRef } from 'react'
+import { Spinner } from '@nextui-org/spinner';
 
-export default function TextEditor() {
+export default function TextEditor({ content }: any) {
   // const [cliente, setCliente] = useState(false)
   const editorRef = useRef()
   const [editorLoaded, setEditorLoaded] = useState(false)
@@ -11,6 +12,7 @@ export default function TextEditor() {
   const editorSetup: any = {
     toolbar: {
       items: [
+        // 'importWord',
         'heading',
         '|',
         'bold',
@@ -144,11 +146,8 @@ export default function TextEditor() {
       {editorLoaded ? <CKEditor
         editor={Editor}
         config={editorSetup}
-        onChange={(e: any, editor: any) => {
-          const data = editor.getData()
-          console.log(data)
-        }}
-      /> : 'Cargando editor...'}
+        onChange={content}
+      /> : <Spinner label="Cargando editor enriquecido.." color="secondary" labelColor="secondary"/>}
     </>
   )
 }

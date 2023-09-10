@@ -31,7 +31,7 @@ model Degree {
 model Topics {
   id Int @id @default(autoincrement())
   title String
-  content String
+  content String @db.LongText
   degree Degree? @relation(fields: [degreeId], references: [id])
   degreeId Int?
 }

@@ -3,10 +3,10 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
-import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
+import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { FontSize, FontColor, FontBackgroundColor, FontFamily } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
@@ -32,6 +32,10 @@ declare class Editor extends ClassicEditor {
         };
         table: {
             contentToolbar: string[];
+        };
+        importWord: {
+            tokenUrl: string;
+            defaultStyles: boolean;
         };
     };
 }

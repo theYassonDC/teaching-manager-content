@@ -5,11 +5,13 @@
 
 import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
-import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
+import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
+// import { ExportPdf } from '@ckeditor/ckeditor5-export-pdf';
+// import { ImportWord } from '@ckeditor/ckeditor5-import-word';
 import { FontSize, FontColor, FontBackgroundColor, FontFamily } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import {
@@ -59,13 +61,16 @@ class Editor extends ClassicEditor {
 		PasteFromOffice,
 		Table,
 		TableToolbar,
-		TextTransformation
+		TextTransformation,
+		// ExportPdf,
+		// ImportWord,
 	];
 
 	public static override defaultConfig = {
 		toolbar: {
 			items: [
 				'heading',
+				// 'importWord',
 				'|',
 				'bold',
 				'italic',
@@ -100,6 +105,10 @@ class Editor extends ClassicEditor {
 				'tableRow',
 				'mergeTableCells'
 			]
+		},
+		importWord: {
+			tokenUrl: 'https://example.com/cs-token-endpoint',
+			defaultStyles: true
 		}
 	};
 }
