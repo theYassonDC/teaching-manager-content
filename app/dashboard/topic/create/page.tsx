@@ -1,5 +1,5 @@
 'use client'
-import { TextEditor } from '@/components'
+import { SuccessMessage, TextEditor } from '@/components'
 import { Select, SelectItem } from '@nextui-org/select'
 import { Input } from "@nextui-org/input"
 import { ChangeEvent, Key, useEffect, useState } from 'react'
@@ -11,7 +11,7 @@ export default function TopicCreatePage() {
   const [content, setcontent] = useState('')
   const [title, setTitle] = useState('')
   const [selectDegree, setSelectDegree] = useState('')
-
+  const [success, setSucess] = useState(false)
   const getData = async () => {
     const res = await getDegrees()
     setDegree(res.degrees)
@@ -27,7 +27,9 @@ export default function TopicCreatePage() {
       degreeId: parseInt(selectDegree)
     }
     const res = await createTopic(topic)
-    if(res.ok) console.log('Saved topic success!')
+    if (res) setSucess(true)
+    if(res) setcontent('')
+    setTimeout(() => { setSucess(false) }, 3000)
   }
   function hadleInput(e: string) {
     setTitle(e)
@@ -35,6 +37,7 @@ export default function TopicCreatePage() {
   return (
     <>
       <div className='flex flex-col gap-5 p-4'>
+        {success ? <SuccessMessage message='Contenido de curso guardado correctamente!' /> : null}
         <div className='flex gap-4'>
           <Input type="text" label='Titulo' className='w-full sm:max-w-[40%]' onValueChange={hadleInput} />
           <Select
@@ -49,7 +52,7 @@ export default function TopicCreatePage() {
             ))}
           </Select>
         </div>
-        <TextEditor content={(e: any, editor: any) => {
+        <TextEditor isToolbar={true} data={content} content={(e: any, editor: any) => {
           const data = editor.getData()
           setcontent(data)
         }} />

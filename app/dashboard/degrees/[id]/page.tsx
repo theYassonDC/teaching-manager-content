@@ -2,17 +2,19 @@
 import { useParams } from 'next/navigation'
 import { ITopics } from "@/app/api/topic/create/topic";
 import { Button } from "@nextui-org/button";
-import { getKeyValue } from "@nextui-org/react";
+// s
+// import { useAsyncList } from "@react-stately/data";
 import { Spinner } from "@nextui-org/spinner";
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
-import { useAsyncList } from "@react-stately/data";
 import { Key, useCallback, useEffect, useState } from "react";
 import { Link } from '@nextui-org/link';
-import { getTopic } from "@/services";
+import { deleteTopic, getTopic } from "@/services";
+import { SuccessMessage } from '@/components';
 
 function DegreePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([])
+  const [message, setMessage] = useState('')
   const params = useParams()
 
   async function getData() {
@@ -26,23 +28,36 @@ function DegreePage() {
     switch (columnKey) {
       case 'actions':
         return (
-          <Button as={Link} href="#" color="primary">Ver contenido</Button>
+          <Button as={Link} href={`/dashboard/topic/${topic.id}`} color="primary">Ver contenido</Button>
         );
       case 'delete':
         return (
-          <Button as={Link} href="#" color="danger">Eliminar</Button>
+          <>
+            <Button onPress={handleDelete} color="danger" id={`${topic.id}`}>Eliminar</Button>
+          </>
         );
       default:
         return cellvalue;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  const handleDelete = async (e?: any) => {
+    const ide = e.target.id
+    const res = await deleteTopic(ide)
+    if (Boolean(res)) setMessage(`Grado ID: ${ide} eliminado correctamente!`)
+    setTimeout(() => { setMessage('') }, 2000)
+    getData()
+  }
+
   useEffect(() => {
     getData()
+    setIsLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   return (
     <div className='flex flex-col items-center'>
+      {message ? <SuccessMessage message={message} /> : null}
       <h1 className='text-zinc-100'>Lista de contenido del grado</h1>
       <Table
         isHeaderSticky
@@ -50,7 +65,7 @@ function DegreePage() {
         className='p-8'
         classNames={{
           base: "max-h-[440px]",
-          table: "min-h-[435px] overflow-scroll",
+          table: "min-h-[440px] overflow-scroll",
         }}
       >
         <TableHeader>
@@ -62,7 +77,7 @@ function DegreePage() {
         <TableBody
           isLoading={isLoading}
           items={topics}
-        // loadingContent={<Spinner label="Loading..." />}
+          loadingContent={<Spinner label="Loading..." />}
         >
           {(item: any) => (
             <TableRow key={item.id}>

@@ -2,7 +2,7 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from '@nextui-org/navbar';
 import { Link } from '@nextui-org/link';
 import { useState } from 'react';
-import { useSession } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
 import { Avatar } from "@nextui-org/avatar";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/dropdown";
 
@@ -18,6 +18,9 @@ export default function DashboardLayout({
     "Degrees",
     "Create topic"
   ];
+
+  const handleClickSingOut = () => signOut()
+
   return <section className="min-h-screen">
     <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-orange-600/40'>
       <NavbarContent>
@@ -55,7 +58,7 @@ export default function DashboardLayout({
               <DropdownItem>
                 Ajustes
               </DropdownItem>
-              <DropdownItem key="delete" className="text-danger" color="danger">
+              <DropdownItem key="delete" className="text-danger" color="danger" onPress={handleClickSingOut}>
                 Cerrar sesion
               </DropdownItem>
             </DropdownMenu>

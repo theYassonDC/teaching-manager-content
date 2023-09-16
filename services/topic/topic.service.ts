@@ -11,3 +11,13 @@ export const getTopic = async (degreeId: string) => {
   const { data } = await axios.get(`${config_services.hostUrl}/api/topic/` + degreeId)
   return data
 }
+
+export const getTopicId = async (id: string) => {
+  const { data } = await axios.get(`${config_services.hostUrl}/api/topic/get/` + id)
+  return data
+}
+
+export const deleteTopic = async (id: string) => {
+  const { data } = await axios.delete(`${config_services.hostUrl}/api/topic/delete/`+ id)
+  return data
+}

@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Spinner } from '@nextui-org/spinner';
 
-export default function TextEditor({ content }: any) {
+export default function TextEditor({ content, isToolbar, dates }: any) {
   // const [cliente, setCliente] = useState(false)
   const editorRef = useRef()
   const [editorLoaded, setEditorLoaded] = useState(false)
@@ -145,8 +145,10 @@ export default function TextEditor({ content }: any) {
     <>
       {editorLoaded ? <CKEditor
         editor={Editor}
-        config={editorSetup}
+        config={isToolbar ? editorSetup: { toolbar: false, isReadOnly: true }}
+        data={dates}
         onChange={content}
+        
       /> : <Spinner label="Cargando editor enriquecido.." color="secondary" labelColor="secondary"/>}
     </>
   )
