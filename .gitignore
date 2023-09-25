@@ -6,6 +6,7 @@
 .pnp.js
 ckeditor5/node_modules
 .env
+package-lock.json
 
 # testing
 /coverage
@@ -16,7 +17,6 @@ ckeditor5/node_modules
 
 # production
 /build
-
 # misc
 .DS_Store
 *.pem
