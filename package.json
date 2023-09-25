@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && npm run export"
+    "deploy": "npm run export && npm run build"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^39.0.1",
