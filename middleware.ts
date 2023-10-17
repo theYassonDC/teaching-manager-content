@@ -1,3 +1,13 @@
-export { default } from "next-auth/middleware";
+import { NextRequest, NextResponse } from 'next/server';
+
+export default async function middleware(req: NextRequest) {
+  const path = req.nextUrl.pathname;
+  const session = !!req.cookies.get("next-auth.session-token")
+
+  if (!session) {
+    return NextResponse.redirect(new URL(`/api/auth/signin?callbackUrl=${path}`, req.url));
+  }
+  return NextResponse.next();
+}
 // "/api/degrees/:path*"
-export const config = { matcher: ["/dashboard/:path*"] };
+export const config = { matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)', "/dashboard/:path*"] };
