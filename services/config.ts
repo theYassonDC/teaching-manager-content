@@ -1,5 +1,5 @@
 const config_services = {
-  hostUrl: 'http://localhost:3000'
+  hostUrl: 'https://teachercontentmanager.netlify.app'
 }
 
 export default config_services
