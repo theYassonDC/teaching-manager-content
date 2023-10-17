@@ -1,14 +1,13 @@
 'use client'
 import { useParams } from 'next/navigation'
-import { ITopics } from "@/app/api/topic/create/topic";
+import { Key, useCallback, useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
-// s
 // import { useAsyncList } from "@react-stately/data";
 import { Spinner } from "@nextui-org/spinner";
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
-import { Key, useCallback, useEffect, useState } from "react";
 import { Link } from '@nextui-org/link';
 import { deleteTopic, getTopic } from "@/services";
+import { ITopics } from "@/app/api/topic/create/topic";
 import { SuccessMessage } from '@/components';
 
 function DegreePage() {
@@ -50,8 +49,12 @@ function DegreePage() {
   }
 
   useEffect(() => {
-    getData()
-    setIsLoading(false)
+    try {
+      getData()
+      setIsLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
