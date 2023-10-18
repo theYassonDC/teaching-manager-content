@@ -11,7 +11,7 @@ export default function Topic() {
   const params = useParams()
   const [topic, setTopic] = useState({ title: '', content: '', degreeId: 0 })
   const getData = async () => {
-    const id: string | any = params.id
+    const id: string | any = params?.id
     const res: ITopics = await getTopicId(id)
     setTopic({ title: res.title, content: res.content, degreeId: res.degreeId })
   }

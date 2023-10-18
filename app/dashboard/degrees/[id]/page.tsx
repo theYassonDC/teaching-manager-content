@@ -17,7 +17,7 @@ function DegreePage() {
   const params = useParams()
 
   async function getData() {
-    const id: string | any = params.id
+    const id: string | any = params?.id
     const res = await getTopic(id)
     setTopics(res.topic)
   }
