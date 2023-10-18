@@ -9,15 +9,16 @@ import { Link } from '@nextui-org/link';
 import { deleteTopic, getTopic } from "@/services";
 import { ITopics } from "@/app/api/topic/create/topic";
 import { SuccessMessage } from '@/components';
-
-function DegreePage() {
+interface Iparams {
+  params: { id: string }
+}
+function DegreePage({ params }: Iparams) {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([])
   const [message, setMessage] = useState('')
-  const params = useParams()
 
   async function getData() {
-    const id: string | any = params?.id
+    const id: string | any = params.id
     const res = await getTopic(id)
     setTopics(res.topic)
   }
