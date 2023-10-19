@@ -1,5 +1,5 @@
 const config_services = {
-  hostUrl: 'https://teachercontentmanager.netlify.app'
+  hostUrl: 'https://teaching-manager-content.vercel.app/'
 }
 
 export default config_services
