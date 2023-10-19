@@ -46,6 +46,7 @@ export default function DashBoardDegrees() {
   const handleDelete = async (e?: any) => {
     const id = e.target?.id
     const res = await deleteDegree(id)
+    setDegree([])
     if (res) setMessage(`Grado ID: ${id} eliminado correctamente!`)
     setTimeout(() => { setMessage('') }, 2000)
     getData()
