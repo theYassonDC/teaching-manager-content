@@ -1,5 +1,7 @@
+import globalConfig from "@/global.config"
+
 const config_services = {
-  hostUrl: 'https://teaching-manager-content.vercel.app/'
+  hostUrl: globalConfig.baseUrl
 }
 
 export default config_services
