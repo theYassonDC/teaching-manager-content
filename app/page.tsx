@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
-// Reload caching
-export const dynamic = 'force-dynamic'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-wrap items-center flex-col gap-5">
