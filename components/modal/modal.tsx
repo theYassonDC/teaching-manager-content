@@ -16,6 +16,11 @@ export default function ModalComponent({ degrees, setDegree }: any) {
   const [matter, setMatter] = useState('')
   const [success, setSuccess] = useState(false)
 
+  async function getData() {
+    const d = await getDegrees()
+    setDegree(d.degrees)
+    setSuccess(false)
+  }
   const userSession: any = session?.user
   const handleSubmit = async () => {
     if (!course || !matter) return
@@ -25,11 +30,6 @@ export default function ModalComponent({ degrees, setDegree }: any) {
       teacherId: userSession.id
     })
     if (res?.message) setSuccess(true)
-    async function getData() {
-      const d = await getDegrees()
-      setDegree(d.degrees)
-      setSuccess(false)
-    }
     getData()
   }
   return (
