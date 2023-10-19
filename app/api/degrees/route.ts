@@ -1,11 +1,9 @@
 import { prisma } from "@/libs";
 import { NextResponse } from "next/server";
-import { PrismaClient } from '@prisma/client';
 export async function GET() {
-  const prismaCliente = new PrismaClient()
   try {
-    const degrees = await prismaCliente.degree.findMany()
-    return NextResponse.json({ degrees })
+    const degrees = await prisma.degree.findMany()
+    return NextResponse.json({ degrees }, {status: 404})
   } catch (error) {
     console.log(error)
   }
