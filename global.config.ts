@@ -1,5 +1,5 @@
 const globalConfig = {
-    baseUrl: 'https://teaching-manager-content.vercel.app/',
+    baseUrl: 'https://teaching-manager-content.vercel.app',
     cookies: '__Secure-next-auth.session-token'
 }
 
