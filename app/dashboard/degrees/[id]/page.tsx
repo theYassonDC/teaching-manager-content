@@ -1,5 +1,4 @@
 'use client'
-import { useParams } from 'next/navigation'
 import { Key, useCallback, useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
 // import { useAsyncList } from "@react-stately/data";
@@ -9,16 +8,13 @@ import { Link } from '@nextui-org/link';
 import { deleteTopic, getTopic } from "@/services";
 import { ITopics } from "@/app/api/topic/create/topic";
 import { SuccessMessage } from '@/components';
-interface Iparams {
-  params: { id: string }
-}
-function DegreePage({ params }: Iparams) {
+function DegreePage({ params }: { params: { id: string } }) {
   const [isLoading, setIsLoading] = useState(true);
   const [topics, setTopics] = useState([])
   const [message, setMessage] = useState('')
 
+  const { id } = params
   async function getData() {
-    const id: string | any = params.id
     const res = await getTopic(id)
     setTopics(res.topic)
   }
