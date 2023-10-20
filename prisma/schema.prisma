@@ -8,8 +8,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
 model User {
@@ -33,7 +34,7 @@ model Degree {
 model Topics {
   id Int @id @default(autoincrement())
   title String
-  content String @db.LongText
+  content String @db.Text
   degree Degree? @relation(fields: [degreeId], references: [id])
   degreeId Int?
 }
