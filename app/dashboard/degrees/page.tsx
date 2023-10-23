@@ -120,7 +120,7 @@ export default function DashBoardDegrees() {
             isLoading={isLoading}
             loadingContent={<Spinner label="Cargando..." />}>
             {(item: any) => (
-              <TableRow key={item.degree}>
+              <TableRow key={item.id}>
                 {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
               </TableRow>
             )}
