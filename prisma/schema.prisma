@@ -16,7 +16,7 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
   nickname String
-  mail String @unique
+  mail String
   password String
   avatar String
   degrees Degree[]
