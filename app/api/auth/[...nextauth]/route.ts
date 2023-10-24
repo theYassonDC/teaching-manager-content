@@ -19,7 +19,7 @@ const handle = NextAuth({
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const userFound = await prisma.user.findUnique({ where: { mail: credentials?.mail } })
+        const userFound = await prisma.user.findUnique({ where: { mail: credentials!.mail } })
         if (!userFound) throw new Error('Invalid credentials')
         const passwordSuccess = await bycryptjs.compare(credentials!.password, userFound.password)
 
