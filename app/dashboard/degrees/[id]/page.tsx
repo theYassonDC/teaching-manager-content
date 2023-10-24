@@ -6,7 +6,7 @@ import { Spinner } from "@nextui-org/spinner";
 import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell } from "@nextui-org/table";
 import { Link } from '@nextui-org/link';
 import { deleteTopic, getTopic } from "@/services";
-import { ITopics } from "@/app/api/topic/create/topic";
+import { ITopics } from "@/app/api/topic/topic";
 import { SuccessMessage } from '@/components';
 function DegreePage({ params }: { params: { id: string } }) {
   const [isLoading, setIsLoading] = useState(true);
