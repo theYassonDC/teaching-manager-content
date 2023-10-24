@@ -43,7 +43,7 @@ export default function DashBoardDegrees() {
     setDegree(d.degrees)
     setIsLoading(false)
   }
-  const handleDelete = async (e?: any) => {
+  const handleDelete = async (e: any) => {
     const id = e.target?.id
     const res = await deleteDegree(id)
     setDegree([])
