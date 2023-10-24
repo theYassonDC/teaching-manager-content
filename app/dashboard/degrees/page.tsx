@@ -9,7 +9,7 @@ import { Button } from '@nextui-org/button';
 import ModalComponent from "@/components/modal/modal";
 import { Input } from "@nextui-org/input";
 import { SearchIcon, SuccessMessage } from "@/components";
-// import { useAsyncList } from "@react-stately/data";
+import { useAsyncList } from "@react-stately/data";
 // import { Pagination } from '@nextui-org/pagination';
 
 export default function DashBoardDegrees() {
@@ -40,7 +40,7 @@ export default function DashBoardDegrees() {
   }, [])
   async function getData() {
     const d = await getDegrees()
-    setDegree(d.degrees)
+    setDegree(d.list)
     setIsLoading(false)
   }
   const handleDelete = async (e: any) => {
@@ -79,7 +79,8 @@ export default function DashBoardDegrees() {
 
   useEffect(() => {
     getData()
-  }, [])
+    console.log(degrees)
+  }, [degrees])
   return (
     <div className="flex flex-col gap-4 items-center justify-center">
       {message ? <SuccessMessage message={message} /> : null}

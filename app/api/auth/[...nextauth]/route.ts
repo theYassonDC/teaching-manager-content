@@ -34,9 +34,9 @@ const handle = NextAuth({
       }
     })
   ],
-  pages: {
-    signIn: '/login'
-  },
+  // pages: {
+  //   signIn: '/login'
+  // },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     jwt({ account, token, user, profile, session }) {
