@@ -15,3 +15,5 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Not found' }, {status: 404})
   }
 }
+
+export async function PUT(request: Request) {}
