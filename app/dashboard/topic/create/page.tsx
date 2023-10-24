@@ -14,7 +14,7 @@ export default function TopicCreatePage() {
   const [success, setSucess] = useState(false)
   const getData = async () => {
     const res = await getDegrees()
-    setDegree(res.degrees)
+    setDegree(res.list)
   }
   useEffect(() => {
     getData()

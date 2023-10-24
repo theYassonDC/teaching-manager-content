@@ -1,9 +1,9 @@
 import axios from "axios";
 import config_services from "../config";
-import { ITopics } from "@/app/api/topic/create/topic";
+import { ITopics } from "@/app/api/topic/topic";
 
 export const createTopic = async (body: ITopics) => {
-  const { data } = await axios.post(`${config_services.hostUrl}/api/topic/create`, body)
+  const { data } = await axios.post(`${config_services.hostUrl}/api/topic`, body)
   return data
 }
 
