@@ -78,7 +78,6 @@ export default function DashBoardDegrees() {
 
   useEffect(() => {
     getData()
-    console.log(degrees)
   }, [degrees])
   return (
     <div className="flex flex-col gap-4 items-center justify-center">

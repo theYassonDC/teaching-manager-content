@@ -18,7 +18,7 @@ export default function ModalComponent({ degrees, setDegree }: any) {
 
   async function getData() {
     const d = await getDegrees()
-    setDegree(d.degrees)
+    setDegree(d.list)
     setSuccess(false)
   }
   const userSession: any = session?.user
