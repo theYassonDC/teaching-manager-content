@@ -1,9 +1,9 @@
-import { IDegree } from "@/app/api/degrees/create/degree";
+import { IDegree } from "@/app/api/degrees/degree";
 import axios from "axios";
 import config_services from "../config";
 
 export const createDegree = async (body: IDegree) => {
-  const { data } = await axios.post(`${config_services.hostUrl}/api/degrees/create`, body)
+  const { data } = await axios.post(`${config_services.hostUrl}/api/degrees`, body)
   return data
 }
 

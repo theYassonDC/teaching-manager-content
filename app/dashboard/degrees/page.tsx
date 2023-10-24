@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, Key, useMemo } from "react"
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/table';
 import { Link } from '@nextui-org/link';
 import { Spinner } from '@nextui-org/spinner';
-import { IDegree } from "@/app/api/degrees/create/degree";
+import { IDegree } from "@/app/api/degrees/degree";
 import { Button } from '@nextui-org/button';
 import ModalComponent from "@/components/modal/modal";
 import { Input } from "@nextui-org/input";
