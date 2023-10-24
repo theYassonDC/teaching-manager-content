@@ -8,7 +8,7 @@ export const createDegree = async (body: IDegree) => {
 }
 
 export const getDegrees = async () => {
-  const { data } = await axios.get(`${config_services.hostUrl}/api/degrees`)
+  const { data } = await axios.get(`${config_services.hostUrl}/api/degrees/all`)
   return data
 }
 
