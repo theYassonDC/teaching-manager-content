@@ -9,8 +9,7 @@ import { Button } from '@nextui-org/button';
 import ModalComponent from "@/components/modal/modal";
 import { Input } from "@nextui-org/input";
 import { SearchIcon, SuccessMessage } from "@/components";
-import { useAsyncList } from "@react-stately/data";
-// import { Pagination } from '@nextui-org/pagination';
+
 
 export default function DashBoardDegrees() {
   const [degrees, setDegree] = useState([])

@@ -1,5 +1,5 @@
 'use client'
-import { ITopics } from "@/app/api/topic/create/topic";
+import { ITopics } from "@/app/api/topic/topic";
 import { TextEditor } from "@/components";
 import { getTopicId } from "@/services"
 import { useParams } from 'next/navigation'

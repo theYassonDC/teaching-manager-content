@@ -2,7 +2,7 @@
 import { SuccessMessage, TextEditor } from '@/components'
 import { Select, SelectItem } from '@nextui-org/select'
 import { Input } from "@nextui-org/input"
-import { ChangeEvent, Key, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { createTopic, getDegrees } from '@/services'
 import { Button } from "@nextui-org/button";
 
