@@ -11,11 +11,8 @@ export async function GET(request: Request) {
   }
 }
 
-// export async function getStaticProps () {
-//   return {
-//     props: {
-//       degrees // esto pasa los registros de ingresos como props al componente
-//     },
-//     revalidate: 10 // esto indica que la página se regenerará cada 10 segundos en el servidor
-//   }
-// }
+export async function getStaticProps () {
+  return {
+    revalidate: 0 // esto indica que la página se regenerará cada 10 segundos en el servidor
+  }
+}
