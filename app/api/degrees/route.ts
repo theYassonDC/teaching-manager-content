@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { NextRequest } from 'next/server'
 import { prisma } from "@/libs";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   try {
     const degrees = await prisma.degree.findMany()
     return NextResponse.json({ degrees }, {status: 200})
