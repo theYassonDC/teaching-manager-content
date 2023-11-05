@@ -29,3 +29,15 @@ export async function POST(request: Request) {
     return NextResponse.json({error: 'Invalid credentials'}, {status: 404})
   }
 }
+
+export async function PUT(request: Request) {
+  const body = await request.json()
+  const { title, content, degreeId }: ITopics = body
+  try {
+    await prisma.topics.update({ where: { id: body?.id }, data: { title, content, degreeId}})
+    return NextResponse.json({ message: 'Update topic!' }, { status: 200})
+  } catch (error) {
+    console.log(error)
+    return NextResponse.json({error: 'Invalid credentials'}, {status: 404})
+  }
+}

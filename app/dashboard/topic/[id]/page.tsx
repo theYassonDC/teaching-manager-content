@@ -9,7 +9,7 @@ import { Button } from '@nextui-org/button';
 
 export default function Topic() {
   const params = useParams()
-  const [topic, setTopic] = useState({ title: '', content: '', degreeId: 0 })
+  const [topic, setTopic] = useState<any>({ title: '', content: '', degreeId: 0 })
   const getData = async () => {
     const id: string | any = params?.id
     const res: ITopics = await getTopicId(id)
@@ -31,6 +31,7 @@ export default function Topic() {
         >
           Volver a lista
         </Button>
+        <Button as={Link} href={`/dashboard/topic/edit/${topic.id}`} className="p-5" color="success">Editar</Button>
         <h1 className="text-3xl text-white p-4">{topic.title}</h1>
         <TextEditor isToolbar={false} dates={topic.content} content={(e: any, editor: any) => {
           editor.enableReadOnlyMode("editor");

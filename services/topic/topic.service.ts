@@ -21,3 +21,8 @@ export const deleteTopic = async (id: string) => {
   const { data } = await axios.delete(`${config_services.hostUrl}/api/topic/delete/`+ id)
   return data
 }
+
+export const updateTopic = async (body: ITopics) => {
+  const { data } = await axios.put(`${config_services.hostUrl}/api/topic`, body)
+  return data
+}

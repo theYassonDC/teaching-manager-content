@@ -26,6 +26,10 @@ function DegreePage({ params }: { params: { id: string } }) {
         return (
           <Button as={Link} href={`/dashboard/topic/${topic.id}`} color="primary">Ver contenido</Button>
         );
+      case 'edit':
+        return (
+          <Button as={Link} href={`/dashboard/topic/edit/${topic.id}`} color="primary">Editar</Button>
+        )
       case 'delete':
         return (
           <>
@@ -72,6 +76,7 @@ function DegreePage({ params }: { params: { id: string } }) {
           <TableColumn key='id'>ID</TableColumn>
           <TableColumn key="title">Titulo</TableColumn>
           <TableColumn key="actions">Actions</TableColumn>
+          <TableColumn key="edit">Edit</TableColumn>
           <TableColumn key="delete">Eliminar</TableColumn>
         </TableHeader>
         <TableBody
