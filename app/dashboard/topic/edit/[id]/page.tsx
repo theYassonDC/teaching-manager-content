@@ -51,7 +51,8 @@ export default function TopicEditPage() {
         </Button>
         <Input value={title} type="text" label='Titulo' className='w-full sm:max-w-[40%]' onValueChange={(e: string) => setTitle(e)} />
         <TextEditor isToolbar={true} dates={content} content={(e: any, editor: any) => {
-          editor.enableReadOnlyMode("editor");
+          const data = editor.getData()
+          setContent(data)
         }} />
         <Button color="primary" className='w-full sm:max-w-[50%] m-auto' onPress={handleClick}>
           Editar
