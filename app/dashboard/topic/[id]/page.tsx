@@ -13,7 +13,7 @@ export default function Topic() {
   const getData = async () => {
     const id: string | any = params?.id
     const res: ITopics = await getTopicId(id)
-    setTopic({ title: res.title, content: res.content, degreeId: res.degreeId })
+    setTopic({ title: res.title, content: res.content, degreeId: res.degreeId, id })
   }
   useEffect(() => {
     getData()
