@@ -31,7 +31,7 @@ export default function TopicCreatePage() {
     const res = await createTopic(topic)
     if (res) setSucess(true)
     if(res) setcontent('')
-    if(res) router.push(`/dashboard/degree/${selectDegree}`)
+    if(res) router.push(`/dashboard/degrees/${selectDegree}`)
     setTimeout(() => { setSucess(false) }, 3000)
   }
   function hadleInput(e: string) {
