@@ -5,6 +5,7 @@ import { Input } from "@nextui-org/input"
 import { ChangeEvent, useEffect, useState } from 'react'
 import { createTopic, getDegrees } from '@/services'
 import { Button } from "@nextui-org/button";
+import { useRouter } from 'next/navigation'
 
 export default function TopicCreatePage() {
   const [degrees, setDegree] = useState([])
@@ -12,6 +13,7 @@ export default function TopicCreatePage() {
   const [title, setTitle] = useState('')
   const [selectDegree, setSelectDegree] = useState('')
   const [success, setSucess] = useState(false)
+  const router = useRouter()
   const getData = async () => {
     const res = await getDegrees()
     setDegree(res.list)
@@ -29,6 +31,7 @@ export default function TopicCreatePage() {
     const res = await createTopic(topic)
     if (res) setSucess(true)
     if(res) setcontent('')
+    if(res) router.push(`/dashboard/degree/${selectDegree}`)
     setTimeout(() => { setSucess(false) }, 3000)
   }
   function hadleInput(e: string) {
