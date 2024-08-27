@@ -20,7 +20,6 @@ export default function DashboardLayout({
   ];
 
   const handleClickSingOut = () => signOut()
-
   return <section className="min-h-screen">
     <Navbar onMenuOpenChange={setIsMenuOpen} className='bg-orange-600/40'>
       <NavbarContent>
@@ -36,12 +35,12 @@ export default function DashboardLayout({
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/dashboard/degrees">
+          <Link className='text-white' href="/dashboard/degrees">
             Grados
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/dashboard/topic/create">
+          <Link className='text-white' href="/dashboard/topic/create">
             Crear tema
           </Link>
         </NavbarItem>

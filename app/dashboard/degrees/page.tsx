@@ -78,7 +78,7 @@ export default function DashBoardDegrees() {
 
   useEffect(() => {
     getData()
-  }, [degrees])
+  }, [])
   return (
     <div className="flex flex-col gap-4 items-center justify-center">
       {message ? <SuccessMessage message={message} /> : null}
