@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request, context: GetServerSidePropsContext) {
   try {
     const search: string | any = context.params?.search
-    const getDegree: object | null = await prisma.degree.findMany({
+    const getDegree: object | null = await prisma.degree.findUnique({
       where: {
-        degree: { startsWith: search}
+        id: Number(search)
       }
     })
     if(!getDegree) return NextResponse.json({ error: 'Not found degree' })
