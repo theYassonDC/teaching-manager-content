@@ -39,11 +39,6 @@ export default function DashboardLayout({
             Grados
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link className='text-white' href="/dashboard/topic/create">
-            Crear tema
-          </Link>
-        </NavbarItem>
         <NavbarItem className='ml-8'>
           <Dropdown>
             <DropdownTrigger>

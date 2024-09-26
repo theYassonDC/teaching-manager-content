@@ -69,7 +69,7 @@ function DegreePage({ params }: { params: { id: string } }) {
           <h1 className="text-white">Grado {degree ? degree?.degree : 'Load...'}</h1>
           <h1 className="text-white font-bold">{degree ? degree?.matter : 'Load...'}</h1>
         </div>
-        <Button as={Link} href="/dashboard/topic/create" color="primary">Crear tema nuevo</Button>
+        <Button as={Link} href={`/dashboard/topic/create?degree=${id}`} color="primary">Crear tema nuevo</Button>
       </div>
       <div className='flex flex-col items-center'>
         {message ? <SuccessMessage message={message} /> : null}

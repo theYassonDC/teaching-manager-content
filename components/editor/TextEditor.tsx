@@ -17,6 +17,7 @@ export default function TextEditor({ content, isToolbar, dates }: any) {
         '|',
         'bold',
         'italic',
+        'underline',
         'link',
         'bulletedList',
         'numberedList',
@@ -45,7 +46,7 @@ export default function TextEditor({ content, isToolbar, dates }: any) {
       }
     },
     fontSize: {
-      options: [10, 12, 14, 'default', 18, 20, 22, 25, 30, 35, 40],
+      options: [10, 12, 14, 'default', 18, 20],
       supportAllValues: true
     },
     heading: {
@@ -110,28 +111,7 @@ export default function TextEditor({ content, isToolbar, dates }: any) {
         'Verdana, Geneva, sans-serif'
       ],
       supportAllValues: true
-    },
-    // removePlugins: [
-    //   'CKBox',
-    //   'CKFinder',
-    //   'EasyImage',
-    //   'RealTimeCollaborativeComments',
-    //   'RealTimeCollaborativeTrackChanges',
-    //   'RealTimeCollaborativeRevisionHistory',
-    //   'PresenceList',
-    //   'Comments',
-    //   'TrackChanges',
-    //   'TrackChangesData',
-    //   'RevisionHistory',
-    //   'Pagination',
-    //   'WProofreader',
-    //   'MathType',
-    //   'SlashCommand',
-    //   'Template',
-    //   'DocumentOutline',
-    //   'FormatPainter',
-    //   'TableOfContents'
-    // ]
+    }
   }
   useEffect(() => {
     editorRef.current = {

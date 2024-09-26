@@ -70,10 +70,10 @@ class Editor extends ClassicEditor {
 		toolbar: {
 			items: [
 				'heading',
-				// 'importWord',
 				'|',
 				'bold',
 				'italic',
+				'underline',
 				'link',
 				'bulletedList',
 				'numberedList',
